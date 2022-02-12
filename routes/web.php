@@ -24,3 +24,7 @@ Route::get('/clientadd', function () {
 Route::get('/clientlist', function () {
     return view('clients.list');
 });
+
+Route::get('/clientdetails', function () {
+    return view('clients.clientdetails');
+});

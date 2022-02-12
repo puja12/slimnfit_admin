@@ -1,13 +1,13 @@
 @extends('layouts.app')
-@section('title','Clients Add')
+@section('title','Add Food')
 @section('content')
 <div class="pagetitle">
       <h1>Clients : </h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Clients</li>
-          <li class="breadcrumb-item active">Add Clients</li>
+          <li class="breadcrumb-item">Food</li>
+          <li class="breadcrumb-item active">Add Food</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -15,7 +15,7 @@
       <div class="row">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Add Client Details</h5>
+              <h5 class="card-title">Add Food Details</h5>
 
               <!-- Floating Labels Form -->
               <form class="row g-3">
@@ -37,18 +37,6 @@
                     <label for="floatingEmail">Email</label>
                   </div>
                 </div>
-
-                <div class="col-sm-4">
-                  <div class="form-floating mb-3">
-                    <select class="form-select" id="floatingSelect" aria-label="State">
-                      <option selected>Male</option>
-                      <option value="1">Female</option>
-                      <option value="2">Others</option>
-                    </select>
-                    <label for="floatingSelect">Gender</label>
-                  </div>
-                </div>
-
                 <div class="col-sm-4">
                     <div class="row">
                         <div class="col-sm-6">
