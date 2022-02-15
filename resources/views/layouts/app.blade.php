@@ -41,7 +41,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="{{route('dashboard')}}" class="logo d-flex align-items-center">
         <img src="asset/img/logo.jpg" alt="">
         <span class="d-none d-lg-block">Slimnfit</span>
       </a>
@@ -92,7 +92,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="">
+        <a class="nav-link " href="{{route('dashboard')}}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -104,12 +104,12 @@
         </a>
         <ul id="clients-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="#">
+            <a href="{{route('addclients')}}">
               <i class="bi bi-circle"></i><span>Add</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="{{route('listclients')}}">
               <i class="bi bi-circle"></i><span>List</span>
             </a>
           </li>
