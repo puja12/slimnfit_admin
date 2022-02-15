@@ -7,7 +7,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Clients</li>
-          <li class="breadcrumb-item active">Add Clients</li>
+          <li class="breadcrumb-item active">Add</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->

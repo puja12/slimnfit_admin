@@ -56,18 +56,11 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="asset/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <!--<img src="asset/img/profile-img.jpg" alt="Profile" class="rounded-circle">-->
             <span class="d-none d-md-block dropdown-toggle ps-2">Welcome, Admin</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
             <li>
               <hr class="dropdown-divider">
             </li>
@@ -124,22 +117,12 @@
         <ul id="dietplan-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="forms-elements.html">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
+              <i class="bi bi-circle"></i><span>Add</span>
             </a>
           </li>
           <li>
             <a href="forms-layouts.html">
-              <i class="bi bi-circle"></i><span>Form Layouts</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-editors.html">
-              <i class="bi bi-circle"></i><span>Form Editors</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-validation.html">
-              <i class="bi bi-circle"></i><span>Form Validation</span>
+              <i class="bi bi-circle"></i><span>List/View</span>
             </a>
           </li>
         </ul>
@@ -152,22 +135,12 @@
         <ul id="food-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="forms-elements.html">
-              <i class="bi bi-circle"></i><span>1</span>
+              <i class="bi bi-circle"></i><span>Add </span>
             </a>
           </li>
           <li>
             <a href="forms-layouts.html">
-              <i class="bi bi-circle"></i><span>2s</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-editors.html">
-              <i class="bi bi-circle"></i><span>Form Editors</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-validation.html">
-              <i class="bi bi-circle"></i><span>Form Validation</span>
+              <i class="bi bi-circle"></i><span>List</span>
             </a>
           </li>
         </ul>
@@ -180,12 +153,12 @@
         <ul id="recipes-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>General Tables</span>
+              <i class="bi bi-circle"></i><span>Add</span>
             </a>
           </li>
           <li>
             <a href="tables-data.html">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
+              <i class="bi bi-circle"></i><span>List</span>
             </a>
           </li>
         </ul>
