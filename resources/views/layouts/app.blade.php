@@ -45,7 +45,8 @@
         <img src="asset/img/logo.jpg" alt="">
         <span class="d-none d-lg-block">Slimnfit</span>
       </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
+      <!--<i class="bi bi-list toggle-sidebar-btn"></i>-->
+      <i class="bi bi-list toggle-sidebar-btn d-xl-none d-block"></i>
     </div><!-- End Logo -->
 
 

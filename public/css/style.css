@@ -1,10 +1,3 @@
-/**
-* Template Name: NiceAdmin - v2.2.2
-* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -531,7 +524,7 @@ h1, h2, h3, h4, h5, h6 {
   top: 60px;
   left: 0;
   bottom: 0;
-  width: 300px;
+  width: 250px;
   z-index: 996;
   transition: all 0.3s;
   padding: 20px;
@@ -557,7 +550,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 1200px) {
   #main, #footer {
-    margin-left: 300px;
+    margin-left: 250px;
   }
 }
 @media (max-width: 1199px) {
@@ -570,7 +563,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: 0;
   }
   .toggle-sidebar .sidebar {
-    left: -300px;
+    left: -250px;
   }
 }
 
@@ -643,7 +636,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   color: #012970;
   transition: 0.3;
-  padding: 10px 0 10px 40px;
+  padding: 10px 0 10px 20px;
   transition: 0.3s;
 }
 .sidebar-nav .nav-content a i {
@@ -797,7 +790,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Recent Sales */
 .dashboard .recent-sales {
-  font-size: 14px;
+  font-size: 13px;
 }
 .dashboard .recent-sales .table thead {
   background: #f6f6fe;
