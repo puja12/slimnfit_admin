@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Clients Add')
+@section('title','Add Client')
 @section('content')
 <div class="pagetitle">
       <h1>Clients : </h1>
@@ -81,23 +81,27 @@
                   </div>
                 </div>
                 <div class="col-sm-4">
-                  <div class="col-md-12">
+                <div class="row">
+                  <div class="col-sm-6">
                     <div class="form-floating">
                       <input type="text" class="form-control" id="floatingCity" placeholder="City">
                       <label for="floatingCity">City</label>
                     </div>
                   </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="form-floating mb-3">
-                    <select class="form-select" id="floatingSelect" aria-label="State">
-                      <option selected>New York</option>
-                      <option value="1">Oregon</option>
-                      <option value="2">DC</option>
-                    </select>
-                    <label for="floatingSelect">State</label>
+
+                  <div class="col-sm-6">
+                    <div class="form-floating mb-3">
+                      <select class="form-select" id="floatingSelect" aria-label="State">
+                        <option selected>New York</option>
+                        <option value="1">Oregon</option>
+                        <option value="2">DC</option>
+                      </select>
+                      <label for="floatingSelect">State</label>
+                    </div>
+                  </div>
                   </div>
                 </div>
+                
                 <div class="col-sm-4">
                   <div class="form-floating">
                     <input type="text" class="form-control" id="floatingZip" placeholder="Zip">

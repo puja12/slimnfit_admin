@@ -3,11 +3,18 @@
 @section('content')
 
     <div class="pagetitle">
-      <h1>Puja Prabhu</h1>
+      <h1>Client : Puja Prabhu</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Clients</li>
+          <li class="breadcrumb-item active">Client Details</li>
+        </ol>
+      </nav>
     </div><!-- End Page Title -->    
     <section class="section biodata">
       <div class="row">
-        <div class="col-lg-7">
+        <div class="col-lg-8">
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Personal Details</h5>
@@ -52,38 +59,38 @@
               
           </div>
 
-          <div class="col-lg-5">
+          <div class="col-lg-4">
             <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Diet Plans</h5>
                   <table class="table">
                     <tbody>
                       <tr>
-                        <th width="5%">No.</th>
+                        <th width="2%">No.</th>
                         <th width="20%">Date</th>
-                        <th width="45%">Plan Name</th>
+                        <th width="48%">Plan Name</th>
                         <th width="30%">Status</th>
                       </tr>
                       <tr>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                      </tr>
-                      <tr>
-                      <td>XXXX</td>
+                        <td>1</td>
                         <td>XXXX</td>
                         <td>XXXX</td>
                         <td>XXXX</td>
                       </tr>
                       <tr>
-                      <td>XXXX</td>
+                      <td>2</td>
                         <td>XXXX</td>
                         <td>XXXX</td>
                         <td>XXXX</td>
                       </tr>
                       <tr>
-                      <td>XXXX</td>
+                      <td>3</td>
+                        <td>XXXX</td>
+                        <td>XXXX</td>
+                        <td>XXXX</td>
+                      </tr>
+                      <tr>
+                      <td>4</td>
                         <td>XXXX</td>
                         <td>XXXX</td>
                         <td>XXXX</td>
@@ -97,6 +104,7 @@
       </div>
 
       <div class="row">
+      <div class="col-lg-12">
         <!-- family members -->
         <div class="card">
                 <div class="card-body">
@@ -137,6 +145,7 @@
                     </tbody>
                   </table>
                 </div>
+              </div>
               </div>
       </div>
     </section>
