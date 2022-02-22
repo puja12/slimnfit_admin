@@ -34,6 +34,9 @@
   <!-- Main CSS File -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+  <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+
+
 </head>
 
 <body>

@@ -21,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::resource('client', 'ClientsController',
                 array('names' => array('index' => 'client.list',
                                        'create'=>'addclients',
-                                       'store'=>'storeclient'
+                                       'store'=>'storeclient',
+                                       'show'=>'showclient'
                                     )
                 ));
 
@@ -35,6 +36,3 @@ Route::get('/', function () {
 
 //Route::get('/clientlist', [ClientsController::class, 'index'])->name('listclients');
 
-Route::get('/clientdetails', function () {
-    return view('clients.clientdetails');
-})->name('clientdetails');

@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="pagetitle">
-      <h1>Client : Puja Prabhu</h1>
+      <h1>Client : {{$curr_client->first_name}} {{$curr_client->last_name}}</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -22,21 +22,21 @@
                     <tbody>
                       <tr>
                         <th width="30%">Date of Birth</th>
-                        <td width="30%">20</td>
+                        <td width="30%">{{date('d-m-Y', strtotime($curr_client->date_of_birth))}}</td>
                         <th width="15%">Weight</th>
-                        <td width="30%">XXXX</td>
+                        <td width="30%">{{$curr_client->weight}}</td>
                       </tr>
                       <tr>
                         <th>Age</th>
-                        <td>XXXX</td>
+                        <td>{{$curr_client->age}} Years</td>
                         <th>Height</th>
-                        <td>XXXX</td>
+                        <td>{{$curr_client->height}}</td>
                       </tr>
                       <tr>
                         <th>Phone No.</th>
-                        <td>XXXX</td>
+                        <td>{{$curr_client->phone}}</td>
                         <th>BMI</th>
-                        <td>XXXX</td>
+                        <td></td>
                       </tr>
                       <tr>
                         <th>Address:</th>
@@ -45,8 +45,10 @@
                         <td>&nbsp;</td>
                       </tr>
                       <tr>
-                        <th>Address<br/>City<br/>State<br/>Pincode</th>
-                        <td>XXXXXXXXXX<br/>XXXX<br/>XXXXX<br/>XXXXXXXX</td>
+                        <!--<th>Address<br/>City<br/>State<br/>Pincode</th>-->
+                        <td colspan="2">@foreach(explode('#', $curr_client->address) as $info) 
+                        {{$info}}<br/>
+                            @endforeach</td>
                         <th></th>
                         <td></td>
                       </tr>

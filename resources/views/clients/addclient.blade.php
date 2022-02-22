@@ -54,16 +54,15 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-floating">
-                            
-                            <label for="weight" class="form-label">Weight (kgs)</label>
-                            <input type="text" name="weight" class="form-control" id="weight">
+                            <input type="text" name="weight" class="form-control" id="weight" placeholder="Weight">
+                            <label for="weight">Weight (kgs)</label>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-floating">
                             
-                            <label for="height" class="form-label">Height (m)</label>
-                            <input type="text" name="height" class="form-control" id="height">
+                            <input type="text" name="height" class="form-control" id="height" placeholder="height">
+                            <label for="height">Height (m)</label>
                             </div>
                         </div>
                         </div>
@@ -71,7 +70,7 @@
 
                 <div class="col-sm-4">
                   <div class="form-floating">
-                    <input type="text" name="bmi" class="form-control" id="bmi" placeholder="Your Name">
+                    <input type="text" name="bmi" class="form-control" id="bmi" placeholder="BMI" readonly>
                     <label for="bmi">BMI</label>
                   </div>
                 </div>
@@ -119,7 +118,7 @@
 
                 <div class="col-sm-4">
                   <div class="form-floating">
-                    <input type="text" name="age" class="form-control" id="age" placeholder="Your Name">
+                    <input type="text" name="age" class="form-control" id="age" placeholder="Your Name" readonly>
                     <label for="age">Age</label>
                   </div>
                 </div>
@@ -139,4 +138,49 @@
       </div>
     </section>
 
+<script>
+$(document).ready(function() {
+  function calculateBMI() {
+      var weight = document.getElementById('weight').value;
+      var height = document.getElementById('height').value; //  / 100;
+      //var output = document.getElementById('output');
+
+      var bmi = weight / (height * height);
+      var result = "";
+
+      if (bmi < 18.5) {
+        result = "Underweight";
+      } else if (bmi > 25 && bmi <= 30) {
+        result = "Overweight";
+      } else if (bmi > 30) {
+        result = "Obese";
+      } else {
+        result = "Normal";
+      }
+
+      bmi = bmi.toFixed(2);
+      
+      if (bmi && bmi != Number.POSITIVE_INFINITY && !isNaN(bmi)) {
+        document.getElementById('bmi').value=bmi;
+      } else {
+        document.getElementById('bmi').value='';
+      }
+  }
+
+  document.getElementById('weight').addEventListener('keyup', calculateBMI);
+  document.getElementById('height').addEventListener('keyup', calculateBMI);
+//document.getElementById('button1').addEventListener('click', calculateBMI);
+
+  var dob = document.getElementById('dob');
+  var age = document.getElementById('age');
+      $('#dob').keyup(function(){
+        var birthdate = new Date(dob.value);
+        var cur = new Date();
+        var diff = cur-birthdate;
+        var cal_age = Math.floor(diff/31536000000);
+          age.value = cal_age;
+      });
+});
+                        
+</script>
     @endsection

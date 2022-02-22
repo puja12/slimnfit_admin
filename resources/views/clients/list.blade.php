@@ -16,13 +16,13 @@
       <div class="row">
       <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Table with stripped rows</h5>
+              <!-- <h5 class="card-title">Table with stripped rows</h5>
 
-              <!-- Table with stripped rows -->
-              <table class="table table-striped datatable">
+              Table with stripped rows -->
+              <table id="clienttb" class="table table-striped datatable">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">No.</th>
                     <th scope="col">Date Joined</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
@@ -34,14 +34,14 @@
                 <tbody>
                 @if(count($clients)>0)
                   @foreach($clients as $curr_client)
-                    <tr>
-                      <th scope="row">1</th>
+                    <tr data-href="{{route('showclient',$curr_client->id)}}" style='cursor: pointer'>
+                      <th scope="row">{{$curr_client->id}}</th>
                       <td>{{date('d-m-Y', strtotime($curr_client->created_at));}}</td>
                       <td>{{$curr_client->first_name}} {{$curr_client->last_name}}</td>
                       <td>{{$curr_client->email}}</td>
-                      <td>2016-05-25</td>
+                      <td>{{$curr_client->age}}</td>
                       <td><i class="bi bi-eye-fill"></i> View</td>
-                      <td>2016-05-25</td>
+                      <td>Active</td>
                     </tr>
                     @endforeach
                     @else
@@ -50,7 +50,16 @@
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
-
+              <script>
+                           $(document).ready(function() {
+                             
+							   $('#clienttb tbody').on('click','tr',function() {
+                                 window.document.location = $(this).data("href");
+							  });
+                              
+                           });
+                        
+                        </script>
             </div>
           </div>
       </div>
