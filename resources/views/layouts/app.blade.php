@@ -99,7 +99,7 @@
             </a>
           </li>
           <li>
-            <a href="{{route('listclients')}}">
+            <a href="{{route('client.list')}}">
               <i class="bi bi-circle"></i><span>List</span>
             </a>
           </li>

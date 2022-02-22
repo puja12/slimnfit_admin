@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,18 +13,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Route::resource('client', ClientsController::class);
+/*Route::resource('client', 'ClientsController', [
+    'as' => 'prefix'
+]);*/
+
+Route::resource('client', 'ClientsController',
+                array('names' => array('index' => 'client.list',
+                                       'create'=>'addclients')));
 
 Route::get('/', function () {
     return view('dashboard.dashboard');
 })->name('dashboard');
 
-Route::get('/clientadd', function () {
+/*Route::get('/clientadd', function () {
     return view('clients.addclient');
-})->name('addclients');
+})->name('addclients');*/
 
-Route::get('/clientlist', function () {
-    return view('clients.list');
-})->name('listclients');
+//Route::get('/clientlist', [ClientsController::class, 'index'])->name('listclients');
 
 Route::get('/clientdetails', function () {
     return view('clients.clientdetails');

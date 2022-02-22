@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title','List of Clients')
 @section('content')
+<!--{{ print_r($clients) }}-->
     <div class="pagetitle">
       <h1>Clients : </h1>
       <nav>
@@ -27,55 +28,25 @@
                     <th scope="col">Email</th>
                     <th scope="col">Age</th>
                     <th scope="col">View/Edit</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Status</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-                    <td>Designer</td>
-                    <td>28</td>
-                    <td>2016-05-25</td>
-                    <td><i class="bi bi-eye-fill"></i> View</td>
-                    <td>2016-05-25</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Bridie Kessler</td>
-                    <td>Developer</td>
-                    <td>35</td>
-                    <td>2014-12-05</td>
-                    <td><i class="bi bi-eye-fill"></i> View</td>
-                    <td>2016-05-25</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Ashleigh Langosh</td>
-                    <td>Finance</td>
-                    <td>45</td>
-                    <td>2011-08-12</td>
-                    <td><i class="bi bi-eye-fill"></i> View</td>
-                    <td>2016-05-25</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Angus Grady</td>
-                    <td>HR</td>
-                    <td>34</td>
-                    <td>2012-06-11</td>
-                    <td><i class="bi bi-eye-fill"></i> View</td>
-                    <td>2016-05-25</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Raheem Lehner</td>
-                    <td>Dynamic Division Officer</td>
-                    <td>47</td>
-                    <td>2011-04-19</td>
-                    <td><i class="bi bi-eye-fill"></i> View</td>
-                    <td>2016-05-25</td>
-                  </tr>
+                @if(count($clients)>0)
+                  @foreach($clients as $curr_client)
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>{{date('d-m-Y', strtotime($curr_client->created_at));}}</td>
+                      <td>{{$curr_client->first_name}} {{$curr_client->last_name}}</td>
+                      <td>{{$curr_client->email}}</td>
+                      <td>2016-05-25</td>
+                      <td><i class="bi bi-eye-fill"></i> View</td>
+                      <td>2016-05-25</td>
+                    </tr>
+                    @endforeach
+                    @else
+                      I don't have any records!
+                    @endif
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
