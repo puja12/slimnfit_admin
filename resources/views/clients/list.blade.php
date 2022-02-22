@@ -23,7 +23,7 @@
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">date added</th>
+                    <th scope="col">Date Joined</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Age</th>

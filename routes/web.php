@@ -20,7 +20,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('client', 'ClientsController',
                 array('names' => array('index' => 'client.list',
-                                       'create'=>'addclients')));
+                                       'create'=>'addclients',
+                                       'store'=>'storeclient'
+                                    )
+                ));
 
 Route::get('/', function () {
     return view('dashboard.dashboard');
