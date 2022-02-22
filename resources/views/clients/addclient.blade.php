@@ -62,17 +62,24 @@
                             <div class="form-floating">
                             
                             <input type="text" name="height" class="form-control" id="height" placeholder="height">
-                            <label for="height">Height (m)</label>
+                            <label for="height">Height (cm)</label>
                             </div>
                         </div>
                         </div>
                 </div>
 
                 <div class="col-sm-4">
-                  <div class="form-floating">
-                    <input type="text" name="bmi" class="form-control" id="bmi" placeholder="BMI" readonly>
-                    <label for="bmi">BMI</label>
-                  </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-floating">
+                            <input type="text" name="bmi" class="form-control" id="bmi" placeholder="BMI" readonly>
+                            <label for="bmi">BMI</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6" id="bmi_result">
+                          
+                        </div>
+                    </div>
                 </div>
                 <div class="col-sm-4">
                   <div class="form-floating">
@@ -142,21 +149,13 @@
 $(document).ready(function() {
   function calculateBMI() {
       var weight = document.getElementById('weight').value;
-      var height = document.getElementById('height').value; //  / 100;
+      var height = document.getElementById('height').value/ 100;
       //var output = document.getElementById('output');
-
+      //console.log('weight' + weight +'height'+height);
+      //var height_sq= height * height;
+      //console.log('height_sq' + height_sq);
       var bmi = weight / (height * height);
       var result = "";
-
-      if (bmi < 18.5) {
-        result = "Underweight";
-      } else if (bmi > 25 && bmi <= 30) {
-        result = "Overweight";
-      } else if (bmi > 30) {
-        result = "Obese";
-      } else {
-        result = "Normal";
-      }
 
       bmi = bmi.toFixed(2);
       
@@ -164,6 +163,21 @@ $(document).ready(function() {
         document.getElementById('bmi').value=bmi;
       } else {
         document.getElementById('bmi').value='';
+      }
+
+      $('#bmi_result').find('span').remove();
+      if (bmi < 18.5) {
+        result = "Underweight";
+        $("#bmi_result").append('<span class="badge bg-light text-dark"><i class="bi bi-star me-1"></i>' + result + '</span>');
+      } else if (bmi > 25 && bmi <= 30) {
+        result = "Overweight";
+        $("#bmi_result").append('<span class="badge bg-warning text-dark"><i class="bi bi-exclamation-triangle me-1"></i>' + result + '</span>');
+      } else if (bmi > 30) {
+        result = "Obese";
+        $("#bmi_result").append('<span class="badge bg-danger"><i class="bi bi-exclamation-octagon me-1"></i>' + result + '</span>');
+      } else {
+        result = "Normal";
+        $("#bmi_result").append('<span class="badge bg-success"><i class="bi bi-check-circle me-1"></i>' + result + '</span>');
       }
   }
 
