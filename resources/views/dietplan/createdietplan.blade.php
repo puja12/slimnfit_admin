@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Add Client')
+@section('title','Create Diet Plan')
 @section('content')
 <div class="pagetitle">
       <h1>Clients : </h1>
@@ -15,129 +15,212 @@
       <div class="row">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Add Client Details</h5>
+              <h5 class="card-title">Add Diet Plan</h5>
 
               <!-- Floating Labels Form -->
               <form class="row g-3">
-                <div class="col-sm-4">
+              <div class="row" style="margin-bottom: 50px;">
+                <div class="col-sm-6">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
-                    <label for="floatingName">First Name</label>
+                    <input type="text" class="form-control" id="floatingName" placeholder="Diet Plan Name">
+                    <label for="floatingName">Diet Plan Name</label>
                   </div>
                 </div>
-                <div class="col-sm-4">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
-                    <label for="floatingName">Last Name</label>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingEmail" placeholder="Your Email">
-                    <label for="floatingEmail">Email</label>
-                  </div>
-                </div>
+              </div>
 
-                <div class="col-sm-4">
-                  <div class="form-floating mb-3">
-                    <select class="form-select" id="floatingSelect" aria-label="State">
-                      <option selected>Male</option>
-                      <option value="1">Female</option>
-                      <option value="2">Others</option>
+              <div class="row">
+              <!-- Bordered Table -->
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col" width="5%">#</th>
+                    <th scope="col" width="15%">Schedule</th>
+                    <th scope="col" width="30%">Food</th>
+                    <th scope="col" width="15%">Quantity</th>
+                    <th scope="col" width="35%">Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Early Morning</td>
+                    <td>
+                    
+                    <select class="select2" multiple="multiple" data-placeholder="Food Item" style="width: 100%;">
+                      <option>Alabama</option>
+                      <option>Alaska</option>
+                      <option>California</option>
+                      <option>Delaware</option>
+                      <option>Tennessee</option>
+                      <option>Texas</option>
+                      <option>Washington</option>
                     </select>
-                    <label for="floatingSelect">Gender</label>
-                  </div>
-                </div>
-
-                <div class="col-sm-4">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-floating">
-                            
-                            <label for="inputZip" class="form-label">Weight (kgs)</label>
-                            <input type="text" class="form-control" id="inputZip">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-floating">
-                            
-                            <label for="inputZip" class="form-label">Height (m)</label>
-                            <input type="text" class="form-control" id="inputZip">
-                            </div>
-                        </div>
-                        </div>
-                </div>
-
-                <div class="col-sm-4">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
-                    <label for="floatingName">BMI</label>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="form-floating">
-                    <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 60px;"></textarea>
-                    <label for="floatingTextarea">Address</label>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="form-floating">
-                      <input type="text" class="form-control" id="floatingCity" placeholder="City">
-                      <label for="floatingCity">City</label>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-6">
+              
+                    </td>
+                    <td>
+                    <select class="select2" multiple="multiple" data-placeholder="Qty per Item" style="width: 100%;">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                    </select>
+                    </td>
+                    <td>
                     <div class="form-floating mb-3">
-                      <select class="form-select" id="floatingSelect" aria-label="State">
-                        <option selected>New York</option>
-                        <option value="1">Oregon</option>
-                        <option value="2">DC</option>
-                      </select>
-                      <label for="floatingSelect">State</label>
+                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 70px;"></textarea>
+                      
                     </div>
-                  </div>
-                  </div>
-                </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Breakfast</td>
+                    <td>
+                    
+                    <select class="select2" multiple="multiple" data-placeholder="Food Item" style="width: 100%;">
+                      <option>Alabama</option>
+                      <option>Alaska</option>
+                      <option>California</option>
+                      <option>Delaware</option>
+                      <option>Tennessee</option>
+                      <option>Texas</option>
+                      <option>Washington</option>
+                    </select>
+              
+                    </td>
+                    <td>
+                    <select class="select2" multiple="multiple" data-placeholder="Qty per Item" style="width: 100%;">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                    </select>
+                    </td>
+                    <td>
+                    <div class="form-floating mb-3">
+                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 70px;"></textarea>
+                      
+                    </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Lunch</td>
+                    <td>
+                    
+                    <select class="select2" multiple="multiple" data-placeholder="Food Item" style="width: 100%;">
+                      <option>Alabama</option>
+                      <option>Alaska</option>
+                      <option>California</option>
+                      <option>Delaware</option>
+                      <option>Tennessee</option>
+                      <option>Texas</option>
+                      <option>Washington</option>
+                    </select>
+              
+                    </td>
+                    <td>
+                    <select class="select2" multiple="multiple" data-placeholder="Qty per Item" style="width: 100%;">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                    </select>
+                    </td>
+                    <td>
+                    <div class="form-floating mb-3">
+                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 70px;"></textarea>
+                      
+                    </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Evening Snacks</td>
+                    <td>
+                    
+                    <select class="select2" multiple="multiple" data-placeholder="Food Item" style="width: 100%;">
+                      <option>Alabama</option>
+                      <option>Alaska</option>
+                      <option>California</option>
+                      <option>Delaware</option>
+                      <option>Tennessee</option>
+                      <option>Texas</option>
+                      <option>Washington</option>
+                    </select>
+              
+                    </td>
+                    <td>
+                    <select class="select2" multiple="multiple" data-placeholder="Qty per Item" style="width: 100%;">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                    </select>
+                    </td>
+                    <td>
+                    <div class="form-floating mb-3">
+                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 70px;"></textarea>
+                      
+                    </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Dinner</td>
+                    <td>
+                    
+                    <select class="select2" multiple="multiple" data-placeholder="Food Item" style="width: 100%;">
+                      <option>Alabama</option>
+                      <option>Alaska</option>
+                      <option>California</option>
+                      <option>Delaware</option>
+                      <option>Tennessee</option>
+                      <option>Texas</option>
+                      <option>Washington</option>
+                    </select>
+              
+                    </td>
+                    <td>
+                    <select class="select2" multiple="multiple" data-placeholder="Qty per Item" style="width: 100%;">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                    </select>
+                    </td>
+                    <td>
+                    <div class="form-floating mb-3">
+                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 70px;"></textarea>
+                      
+                    </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- End Bordered Table -->
+              </div>
                 
-                <div class="col-sm-4">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingZip" placeholder="Zip">
-                    <label for="floatingZip">Zip</label>
-                  </div>
-                </div>
-
-                <div class="col-sm-4">
-                    <div class="form-floating">
-                            <input type="date" class="form-control">
-                            <label for="inputDate" >Date</label>
-                    </div>
-                </div>
-
-                <div class="col-sm-4">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
-                    <label for="floatingName">Age</label>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                <div class="form-floating mb-3">
-                  <!--<label>Multiple</label>-->
-                  <select class="form-select select2 " multiple="multiple" id="floatingSelect" aria-label="State" style="width: 100%;">
-                    <option>Alabama</option>
-                    <option>Alaska</option>
-                    <option>California</option>
-                    <option>Delaware</option>
-                    <option>Tennessee</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
-                  </select>
-                  <label for="floatingSelect">State</label>
-                </div>
-                <!-- /.form-group -->
-                </div>
 
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">Submit</button>
