@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Clients Add')
+@section('title','Clients Profile')
 @section('content')
 
     <div class="pagetitle">
@@ -8,7 +8,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Clients</li>
-          <li class="breadcrumb-item active">Client Details</li>
+          <li class="breadcrumb-item active">Client Profile</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->    
@@ -17,7 +17,7 @@
         <div class="col-lg-8">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Personal Details</h5>
+                  <h5 class="card-title">Profile Details</h5>
                   <table class="table">
                     <tbody>
                       <tr>
@@ -46,9 +46,15 @@
                       </tr>
                       <tr>
                         <!--<th>Address<br/>City<br/>State<br/>Pincode</th>-->
-                        <td colspan="2">@foreach(explode('#', $curr_client->address) as $info) 
-                        {{$info}}<br/>
-                            @endforeach</td>
+                        <td colspan="2">
+                          @if($curr_client->address != '')
+                            @foreach(explode('#', $curr_client->address) as $info) 
+                              {{$info}}<br/>
+                            @endforeach
+                          @else
+                            N.A.
+                          @endif
+                        </td>
                         <th></th>
                         <td></td>
                       </tr>
@@ -106,7 +112,14 @@
       </div>
 
       <div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Other Details</h5>
+            </div>
+          </div>
+      </div>
+      <div class="col-lg-6">
         <!-- family members -->
         <div class="card">
                 <div class="card-body">
@@ -114,16 +127,16 @@
                   <table class="table">
                     <tbody>
                       <tr>
-                        <th width="5%">Date</th>
-                        <th width="30%">Weight (Kgs)</th>
-                        <th width="30%">Height (m)</th>
-                        <th width="30%">BMI</th>
+                        <th width="30%">Date</th>
+                        <th width="15%">Weight (Kgs)</th>
+                        <th width="15%">Height (cm)</th>
+                        <th width="35%">BMI</th>
                       </tr>
                       <tr>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
+                        <td>20-01-2022</td>
+                        <td>67</td>
+                        <td>162</td>
+                        <td>25.53 Overweight</td>
                       </tr>
                       <tr>
                       <td>XXXX</td>
