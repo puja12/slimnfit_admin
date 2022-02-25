@@ -36,3 +36,14 @@ Route::get('/', function () {
 
 //Route::get('/clientlist', [ClientsController::class, 'index'])->name('listclients');
 
+Route::get('/listdietplans', function () {
+    return view('dietplan.dietplanlist');
+})->name('listdietplans');
+
+Route::get('/viewdietplan', function () {
+    return view('dietplan.dietplandetail');
+})->name('viewdietplan');
+
+Route::get('/createdietplan', function () {
+    return view('dietplan.createdietplan');
+})->name('createdietplan');

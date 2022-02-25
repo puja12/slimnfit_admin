@@ -14,15 +14,6 @@
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- CSS Files -->
-  <!-- <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/boxicons.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/quill.snow.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/quill.bubble.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/remixicon.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/style.css') }}" rel="stylesheet">-->
-
   <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
@@ -30,6 +21,8 @@
   <link href="{{ asset('vendor/quill/quill.bubble.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/remixicon/remixicon.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/simple-datatables/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('vendor/select2/css/select2.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('vendor/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}" rel="stylesheet">
 
   <!-- Main CSS File -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -205,7 +198,21 @@
   <script src="{{ asset('vendor/simple-datatables/simple-datatables.js') }}"></script>
   <script src="{{ asset('vendor/tinymce/tinymce.min.js') }}"></script>
   <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
+  <!-- Select2 -->
+<script src="{{ asset('vendor/select2/js/select2.full.min.js') }}"></script>
 
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+  })
+  
+</script>
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
 

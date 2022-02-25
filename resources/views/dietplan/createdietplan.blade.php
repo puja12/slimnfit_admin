@@ -122,8 +122,22 @@
                     <label for="floatingName">Age</label>
                   </div>
                 </div>
-                
-                
+                <div class="col-sm-4">
+                <div class="form-floating mb-3">
+                  <!--<label>Multiple</label>-->
+                  <select class="form-select select2 " multiple="multiple" id="floatingSelect" aria-label="State" style="width: 100%;">
+                    <option>Alabama</option>
+                    <option>Alaska</option>
+                    <option>California</option>
+                    <option>Delaware</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Washington</option>
+                  </select>
+                  <label for="floatingSelect">State</label>
+                </div>
+                <!-- /.form-group -->
+                </div>
 
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">Submit</button>
