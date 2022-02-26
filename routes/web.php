@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+//use App\Http\Controllers\DietplanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +26,13 @@ Route::resource('client', 'ClientsController',
                                     )
                 ));
 
+Route::resource('diets', 'DietsController',
+array('names' => array('index' => 'diet.list',
+                        'create'=>'createdietplan',
+                        'store'=>'stordietplan',
+                        'show'=>'viewdietplan'
+                    )
+));
 Route::get('/', function () {
     return view('dashboard.dashboard');
 })->name('dashboard');
@@ -40,10 +47,12 @@ Route::get('/listdietplans', function () {
     return view('dietplan.dietplanlist');
 })->name('listdietplans');
 
-Route::get('/viewdietplan', function () {
+/*Route::get('/viewdietplan', function () {
     return view('dietplan.dietplandetail');
 })->name('viewdietplan');
 
 Route::get('/createdietplan', function () {
     return view('dietplan.createdietplan');
 })->name('createdietplan');
+
+Route::get('/createdietplan', [DietplanController::class, 'create'])->name('createdietplan');*/

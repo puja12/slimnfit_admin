@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Diet;
+use App\Models\Meal;
+use App\Models\Mealtime;
+use App\Models\Food;
+use App\Models\food_unit;
 use Illuminate\Http\Request;
 
 class DietsController extends Controller
@@ -14,7 +18,9 @@ class DietsController extends Controller
      */
     public function index()
     {
-        //
+        $diets = Diet::all();
+        //dd($diets);
+        return view('dietplan.dietplanlist',['diets'=> $diets]);
     }
 
     /**
@@ -24,7 +30,7 @@ class DietsController extends Controller
      */
     public function create()
     {
-        //
+        return view('dietplan.createdietplan');
     }
 
     /**
@@ -36,6 +42,7 @@ class DietsController extends Controller
     public function store(Request $request)
     {
         //
+        dd(request()->all());
     }
 
     /**
@@ -46,7 +53,7 @@ class DietsController extends Controller
      */
     public function show(Diet $diet)
     {
-        //
+        return view('dietplan.dietplandetail');
     }
 
     /**

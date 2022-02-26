@@ -1,13 +1,12 @@
 @extends('layouts.app')
-@section('title','List of Clients')
+@section('title','List of Diet Plans')
 @section('content')
-<!--{{ print_r($clients) }}-->
     <div class="pagetitle">
-      <h1>Clients : </h1>
+      <h1>Diet Plans : </h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Clients</li>
+          <li class="breadcrumb-item">Diet Plans</li>
           <li class="breadcrumb-item active">List</li>
         </ol>
       </nav>
@@ -26,22 +25,25 @@
                     <th scope="col">Date</th>
                     <th scope="col">Name</th>
                     <th scope="col">Client</th>
-                    <th scope="col">Action</th>
                     <th scope="col">Copy Meal</th>
-                    <th scope="col">Delete</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                @if(count($clients)>0)
-                  @foreach($clients as $curr_client)
+                @if(count($diets)>0)
+                  @foreach($diets as $curr_client)
                     <tr data-href="{{route('showclient',$curr_client->id)}}" style='cursor: pointer'>
                       <th scope="row">{{$curr_client->id}}</th>
-                      <td>{{date('d-m-Y', strtotime($curr_client->created_at));}}</td>
-                      <td>{{$curr_client->first_name}} {{$curr_client->last_name}}</td>
+                      <td>{{date('d-m-Y', strtotime($curr_client->date));}}</td>
+                      <td>{{$curr_client->plan_name}}</td>
                       <td>{{$curr_client->email}}</td>
-                      <td>{{$curr_client->age}}</td>
-                      <td><i class="bi bi-eye-fill"></i> View</td>
-                      <td>Active</td>
+                      
+                      <td><i class="bi bi-files"></i>Copy Diet</td>
+                      <td>
+                      <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-eye-fill"></i>  </a>
+                      <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-plus-square"></i></a>
+                      <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                      </td>
                     </tr>
                     @endforeach
                     @else

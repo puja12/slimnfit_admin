@@ -2,11 +2,11 @@
 @section('title','Create Diet Plan')
 @section('content')
 <div class="pagetitle">
-      <h1>Clients : </h1>
+      <h1>Diet Plan : </h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Clients</li>
+          <li class="breadcrumb-item">Diet Plan</li>
           <li class="breadcrumb-item active">Add</li>
         </ol>
       </nav>
@@ -18,7 +18,7 @@
               <h5 class="card-title">Add Diet Plan</h5>
 
               <!-- Floating Labels Form -->
-              <form class="row g-3">
+              <form class="row g-3" method="post" action="">
               <div class="row" style="margin-bottom: 50px;">
                 <div class="col-sm-6">
                   <div class="form-floating">
@@ -34,10 +34,11 @@
                 <thead>
                   <tr>
                     <th scope="col" width="5%">#</th>
-                    <th scope="col" width="15%">Schedule</th>
+                    <th scope="col" width="10%">Schedule</th>
                     <th scope="col" width="30%">Food</th>
                     <th scope="col" width="15%">Quantity</th>
-                    <th scope="col" width="35%">Notes</th>
+                    <th scope="col" width="15%">Units</th>
+                    <th scope="col" width="25%">Notes</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -46,19 +47,20 @@
                     <td>Early Morning</td>
                     <td>
                     
-                    <select class="select2" multiple="multiple" data-placeholder="Food Item" style="width: 100%;">
-                      <option>Alabama</option>
-                      <option>Alaska</option>
-                      <option>California</option>
-                      <option>Delaware</option>
-                      <option>Tennessee</option>
-                      <option>Texas</option>
-                      <option>Washington</option>
+                    <select class="select2" multiple="multiple" name="food_item" data-placeholder="Food Item" style="width: 100%;">
+                      <option>Methi Seeds</option>
+                      <option>Almonds</option>
+                      <option>Walnuts</option>
+                      <option>tea</option>
+                      <option>Oats Chilla</option>
+                      <option>upma</option>
+                      <option>Brown Bread Sandwich</option>
+                      <option>Besan Chilla</option>
                     </select>
               
                     </td>
                     <td>
-                    <select class="select2" multiple="multiple" data-placeholder="Qty per Item" style="width: 100%;">
+                    <select class="select2" multiple="multiple" name="per_item_qty" data-placeholder="Qty per Item" style="width: 100%;">
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -67,6 +69,18 @@
                       <option>6</option>
                       <option>7</option>
                       <option>8</option>
+                    </select>
+                    </td>
+                    <td>
+                    <select class="select2" multiple="multiple" name="food_unit" data-placeholder="Units" style="width: 100%;">
+                      <option>cup</option>
+                      <option>cups</option>
+                      <option>cup sliced</option>
+                      <option>bowl</option>
+                      <option>handful</option>
+                      <option>nos.</option>
+                      <option>large</option>
+                      <option>small</option>
                     </select>
                     </td>
                     <td>
@@ -82,13 +96,14 @@
                     <td>
                     
                     <select class="select2" multiple="multiple" data-placeholder="Food Item" style="width: 100%;">
-                      <option>Alabama</option>
-                      <option>Alaska</option>
-                      <option>California</option>
-                      <option>Delaware</option>
-                      <option>Tennessee</option>
-                      <option>Texas</option>
-                      <option>Washington</option>
+                      <option>Methi Seeds</option>
+                      <option>Almonds</option>
+                      <option>Walnuts</option>
+                      <option>tea</option>
+                      <option>Oats Chilla</option>
+                      <option>upma</option>
+                      <option>Brown Bread Sandwich</option>
+                      <option>Besan Chilla</option>
                     </select>
               
                     </td>
@@ -117,13 +132,14 @@
                     <td>
                     
                     <select class="select2" multiple="multiple" data-placeholder="Food Item" style="width: 100%;">
-                      <option>Alabama</option>
-                      <option>Alaska</option>
-                      <option>California</option>
-                      <option>Delaware</option>
-                      <option>Tennessee</option>
-                      <option>Texas</option>
-                      <option>Washington</option>
+                      <option>Methi Seeds</option>
+                      <option>Almonds</option>
+                      <option>Walnuts</option>
+                      <option>tea</option>
+                      <option>Oats Chilla</option>
+                      <option>upma</option>
+                      <option>Brown Bread Sandwich</option>
+                      <option>Besan Chilla</option>
                     </select>
               
                     </td>
@@ -152,13 +168,14 @@
                     <td>
                     
                     <select class="select2" multiple="multiple" data-placeholder="Food Item" style="width: 100%;">
-                      <option>Alabama</option>
-                      <option>Alaska</option>
-                      <option>California</option>
-                      <option>Delaware</option>
-                      <option>Tennessee</option>
-                      <option>Texas</option>
-                      <option>Washington</option>
+                      <option>Methi Seeds</option>
+                      <option>Almonds</option>
+                      <option>Walnuts</option>
+                      <option>tea</option>
+                      <option>Oats Chilla</option>
+                      <option>upma</option>
+                      <option>Brown Bread Sandwich</option>
+                      <option>Besan Chilla</option>
                     </select>
               
                     </td>
@@ -187,13 +204,14 @@
                     <td>
                     
                     <select class="select2" multiple="multiple" data-placeholder="Food Item" style="width: 100%;">
-                      <option>Alabama</option>
-                      <option>Alaska</option>
-                      <option>California</option>
-                      <option>Delaware</option>
-                      <option>Tennessee</option>
-                      <option>Texas</option>
-                      <option>Washington</option>
+                      <option>Methi Seeds</option>
+                      <option>Almonds</option>
+                      <option>Walnuts</option>
+                      <option>tea</option>
+                      <option>Oats Chilla</option>
+                      <option>upma</option>
+                      <option>Brown Bread Sandwich</option>
+                      <option>Besan Chilla</option>
                     </select>
               
                     </td>
@@ -236,3 +254,5 @@
     </section>
 
     @endsection
+
+  
