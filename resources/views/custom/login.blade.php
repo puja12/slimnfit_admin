@@ -34,23 +34,23 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-<header id="header" class="header fixed-top d-flex align-items-center">
-
-    
-
-
-    
-
-  </header>
 
   
-  <main id="main" class="main">
+  <main>
+  <div class="container">
+
+<section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
   <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+        <div class="d-flex justify-content-center py-4">
+                <a href="index.html" class="logo d-flex align-items-center w-auto">
+                  <img src="assets/img/logo.png" alt="">
+                  <span class="d-none d-lg-block">Slimnfit Admin</span>
+                </a>
+              </div><!-- End Logo -->
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header" style="margin-bottom: 25px;">Admin Login</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -115,6 +115,9 @@
         </div>
     </div>
 </div>
+</section>
+
+    </div>
   </main><!-- End #main -->
     
 

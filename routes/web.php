@@ -2,27 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-//use App\Http\Controllers\DietplanController;
+use App\Http\Controllers\DashboardController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-//Route::resource('client', ClientsController::class);
-/*Route::resource('client', 'ClientsController', [
-    'as' => 'prefix'
-]);*/
 
 Route::get('/', [LoginController::class, 'showLoginForm']);
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Auth::routes();
 
@@ -36,17 +20,27 @@ Route::resource('client', 'ClientsController',
                 ));
 
 Route::resource('diets', 'DietsController',
-array('names' => array('index' => 'diet.list',
-                        'create'=>'createdietplan',
-                        'store'=>'stordietplan',
-                        'show'=>'viewdietplan'
-                    )
-));
-Route::get('/', function () {
+                array('names' => array('index' => 'diet.list',
+                                        'create'=>'createdietplan',
+                                        'store'=>'stordietplan',
+                                        'show'=>'viewdietplan'
+                                    )
+                ));
+
+
+Route::get('logout', function ()
+{
+    auth()->logout();
+    Session()->flush();
+    return Redirect::to('/');
+})->name('logout');
+
+
+/*Route::get('/', function () {
     return view('dashboard.dashboard');
 })->name('dashboard');
 
-/*Route::get('/clientadd', function () {
+Route::get('/clientadd', function () {
     return view('clients.addclient');
 })->name('addclients');*/
 

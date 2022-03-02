@@ -252,7 +252,50 @@
         </div>
       </div>
     </section>
+    <script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
 
+    //Initialize Select2 Elements
+    /*$('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })*/
+
+    //to prevent multi select sorting
+    $("select").select2();
+    $("select").on("select2:select", function (evt) {
+      var element = evt.params.data.element;
+      var $element = $(element);
+      
+      $element.detach();
+      $(this).append($element);
+      $(this).trigger("change");
+    });
+    //end of  prevent multi select sorting
+
+    $("select").select2();
+    $("select").on("select2:select", function (evt) {
+      //console.log('HIIIIIIIII');return false;
+      // remove select2-disabled class from all li under the dropdown
+      $('.select2-drop .select2-results li').removeClass('select2-disabled');
+        // add select2-result-selectable class to all li which are missing the respective class
+      $('.select2-drop .select2-results li').each(function()
+      {
+        if(!$(this).hasClass('select2-result-selectable'))
+          $(this).addClass('select2-result-selectable');
+      });   
+    });
+ 
+   // had to include the following code as a hack since the click event required double click on 'select2-input' to invoke the event
+  $('.select2-container-multi').on('mouseover',function()
+  {
+    $('.select2-input').click();
+  });
+
+  })
+  
+</script>
     @endsection
 
   

@@ -9,7 +9,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>{{ config('app.name', 'Laravel') }}</title>
 
   <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -23,10 +23,7 @@
 
   <!-- Main CSS File -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
   <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
-
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -34,39 +31,30 @@
 
   <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
-
     <div class="d-flex align-items-center justify-content-between">
       <a href="{{route('dashboard')}}" class="logo d-flex align-items-center">
         <img src="asset/img/logo.jpg" alt="">
         <span class="d-none d-lg-block">Slimnfit</span>
       </a>
-      <!--<i class="bi bi-list toggle-sidebar-btn"></i>-->
       <i class="bi bi-list toggle-sidebar-btn d-xl-none d-block"></i>
     </div><!-- End Logo -->
 
-
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-
         <li class="nav-item dropdown pe-3">
-
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <!--<img src="asset/img/profile-img.jpg" alt="Profile" class="rounded-circle">-->
             <span class="d-none d-md-block dropdown-toggle ps-2">Welcome, Admin</span>
           </a><!-- End Profile Iamge Icon -->
-            
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
             </li>
-
           </ul><!-- End Profile Dropdown Items -->
         </li><!-- End Profile Nav -->
-
       </ul>
     </nav><!-- End Icons Navigation -->
 
@@ -170,20 +158,11 @@
         </a>
       </li><!-- End Register Page Nav -->
     </ul>
-
   </aside>
 
   <main id="main" class="main">
-  @yield('content')
-
+    @yield('content')
   </main><!-- End #main -->
-    <!-- ======= Footer ======= -->
-  <!-- <footer id="footer" class="footer">
-    <div class="copyright">
-      &copy; Copyright <strong><span>SNV SAMAJ</span></strong>. All Rights Reserved
-    </div>
-  </footer>-->
-  <!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -197,52 +176,7 @@
   <script src="{{ asset('vendor/tinymce/tinymce.min.js') }}"></script>
   <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
   <!-- Select2 -->
-<script src="{{ asset('vendor/select2/js/select2.full.min.js') }}"></script>
-
-<script>
-  $(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-
-    //Initialize Select2 Elements
-    /*$('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })*/
-
-    //to prevent multi select sorting
-    $("select").select2();
-    $("select").on("select2:select", function (evt) {
-      var element = evt.params.data.element;
-      var $element = $(element);
-      
-      $element.detach();
-      $(this).append($element);
-      $(this).trigger("change");
-    });
-    //end of  prevent multi select sorting
-
-    $("select").select2();
-    $("select").on("select2:select", function (evt) {
-      //console.log('HIIIIIIIII');return false;
-      // remove select2-disabled class from all li under the dropdown
-      $('.select2-drop .select2-results li').removeClass('select2-disabled');
-        // add select2-result-selectable class to all li which are missing the respective class
-      $('.select2-drop .select2-results li').each(function()
-      {
-        if(!$(this).hasClass('select2-result-selectable'))
-          $(this).addClass('select2-result-selectable');
-      });   
-    });
- 
-   // had to include the following code as a hack since the click event required double click on 'select2-input' to invoke the event
-  $('.select2-container-multi').on('mouseover',function()
-  {
-    $('.select2-input').click();
-  });
-
-  })
-  
-</script>
+  <script src="{{ asset('vendor/select2/js/select2.full.min.js') }}"></script>
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
 
