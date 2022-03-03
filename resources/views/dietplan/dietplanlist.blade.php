@@ -32,7 +32,7 @@
                 <tbody>
                 @if(count($diets)>0)
                   @foreach($diets as $curr_client)
-                    <tr data-href="{{route('showclient',$curr_client->id)}}" style='cursor: pointer'>
+                    <tr data-href="{{route('viewdietplan',$curr_client->id)}}" style='cursor: pointer'>
                       <th scope="row">{{$curr_client->id}}</th>
                       <td>{{date('d-m-Y', strtotime($curr_client->date));}}</td>
                       <td>{{$curr_client->plan_name}}</td>
