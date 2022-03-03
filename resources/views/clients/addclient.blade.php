@@ -206,6 +206,13 @@
                   </div>
                </div>
                <div class="col-sm-4">
+                  <div class="form-floating">
+                     <input type="text" name="eat_out" class="form-control" id="eat_out" placeholder="Your Name">
+                     <label for="eat_out">How often do you eat out ?
+                     </label>
+                  </div>
+               </div>
+               <div class="col-sm-4">
                   <div class="form-floating mb-3">
                      <select name="alcohol" class="form-select" id="alcohol" aria-label="State">
                         <option value="yes">Yes</option>

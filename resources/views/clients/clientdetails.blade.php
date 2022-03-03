@@ -115,11 +115,69 @@
       <div class="col-lg-6">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Other Details</h5>
+              
+              <h5 class="card-title">Food Habits & Life Style</h5>
+              <table class="table table-borderless">
+                    <tbody>
+                      <tr>
+                        <th>Meal Type : </th> <td>{{$curr_client->diet_type}}</td>
+                      </tr>
+                      <tr>
+                        <th>No. of Meals per Day : </th> <td>{{$curr_client->no_of_meals}}</td>
+                      </tr>
+                      <tr>
+                        <th>Major Meal :</th> <td> {{$curr_client->major_meal}}</td>
+                        </tr>
+                      <tr>
+                        <th>Water in a day (glasses or litres) :</th> <td> {{$curr_client->glass_water}}</td>
+                        </tr>
+                      <tr>
+                        <th>No. of cups of tea/coffee in a day (With or without sugar ):</th> <td>{{$curr_client->tea_coffee}} {{$curr_client->sugar}}</td>
+                        </tr>
+                      <tr>
+                        <th>Cooking oil used :</th> <td>{{$curr_client->cooking_oil}}</td>
+                        </tr>
+                      <tr>
+                        <th>Digestive Complaints :</th> <td>{{$curr_client->digestive_complaints}}</td>
+                        </tr>
+                      <tr>
+                        <th>Eat outside food :</th> <td>{{$curr_client->eat_out}}</td>
+                        </tr>
+                      <tr>
+                        <th>Consume alcohol :</th> <td>{{$curr_client->alcohol}}</td>
+                        </tr>
+                      <tr>
+                        <th>Smoke :</th> <td>{{$curr_client->smoke}}</td>
+                        </tr>
+                      <tr>
+                        <th>Active are you :</th> <td>{{$curr_client->how_active}}</td>
+                        </tr>
+                      <tr>
+                        <th>Followed any diet plan in the past :</th> <td>{{$curr_client->followed_dietplan}} {{$curr_client->followed_dietplan_comment}}</td>
+                      </tr>
+                      
+                      <tr>
+                        <th>Foods to Avoid :</th> <td>{{$curr_client->avoid_food}}</td>
+                      </tr>
+                      <tr>
+                        <th>Diet recall :</th> <td> {{$curr_client->diet_recall}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
             </div>
           </div>
       </div>
+
+      
+        
+
       <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+              <h5 class="card-title">Medical History</h5>
+              <p>{{$curr_client->medical_history}}</p>
+          </div>
+        </div>
         <!-- family members -->
         <div class="card">
                 <div class="card-body">
