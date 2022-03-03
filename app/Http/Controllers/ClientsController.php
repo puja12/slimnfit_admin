@@ -19,7 +19,6 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        // get all the sharks
         $clients = Client::all();
         // load the view and pass the sharks
         //return view('clients.list')->with('clients', $clients);
