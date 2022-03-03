@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>Slimnfit Admin - @yield('title')</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- CSS Files -->
-  <!-- <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/boxicons.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/quill.snow.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/quill.bubble.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/remixicon.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/style.css') }}" rel="stylesheet">-->
+  <title>{{ config('app.name', 'Laravel') }}</title>
 
   <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -29,49 +18,43 @@
   <link href="{{ asset('vendor/quill/quill.bubble.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/remixicon/remixicon.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/simple-datatables/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('vendor/select2/css/select2.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('vendor/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}" rel="stylesheet">
 
   <!-- Main CSS File -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
+  <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-
 <body>
 
   <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
-
     <div class="d-flex align-items-center justify-content-between">
       <a href="{{route('dashboard')}}" class="logo d-flex align-items-center">
         <img src="asset/img/logo.jpg" alt="">
         <span class="d-none d-lg-block">Slimnfit</span>
       </a>
-      <!--<i class="bi bi-list toggle-sidebar-btn"></i>-->
       <i class="bi bi-list toggle-sidebar-btn d-xl-none d-block"></i>
     </div><!-- End Logo -->
 
-
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-
         <li class="nav-item dropdown pe-3">
-
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <!--<img src="asset/img/profile-img.jpg" alt="Profile" class="rounded-circle">-->
             <span class="d-none d-md-block dropdown-toggle ps-2">Welcome, Admin</span>
           </a><!-- End Profile Iamge Icon -->
-            
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
             </li>
-
           </ul><!-- End Profile Dropdown Items -->
         </li><!-- End Profile Nav -->
-
       </ul>
     </nav><!-- End Icons Navigation -->
 
@@ -99,7 +82,7 @@
             </a>
           </li>
           <li>
-            <a href="{{route('listclients')}}">
+            <a href="{{route('client.list')}}">
               <i class="bi bi-circle"></i><span>List</span>
             </a>
           </li>
@@ -113,12 +96,12 @@
         </a>
         <ul id="dietplan-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.html">
+            <a href="{{route('createdietplan')}}">
               <i class="bi bi-circle"></i><span>Add</span>
             </a>
           </li>
           <li>
-            <a href="forms-layouts.html">
+            <a href="{{route('diet.list')}}">
               <i class="bi bi-circle"></i><span>List/View</span>
             </a>
           </li>
@@ -175,20 +158,11 @@
         </a>
       </li><!-- End Register Page Nav -->
     </ul>
-
   </aside>
 
   <main id="main" class="main">
-  @yield('content')
-
+    @yield('content')
   </main><!-- End #main -->
-    <!-- ======= Footer ======= -->
-  <!-- <footer id="footer" class="footer">
-    <div class="copyright">
-      &copy; Copyright <strong><span>SNV SAMAJ</span></strong>. All Rights Reserved
-    </div>
-  </footer>-->
-  <!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -201,10 +175,10 @@
   <script src="{{ asset('vendor/simple-datatables/simple-datatables.js') }}"></script>
   <script src="{{ asset('vendor/tinymce/tinymce.min.js') }}"></script>
   <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
-
+  <!-- Select2 -->
+  <script src="{{ asset('vendor/select2/js/select2.full.min.js') }}"></script>
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
 
 </body>
-
 </html>

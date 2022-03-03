@@ -37,4 +37,9 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    //It overrides the function showLoginForm defined in the trait Illuminate\Foundation\Auth\AuthenticatesUsers.
+    public function showLoginForm(){
+        return view('custom.login');
+    }
 }
