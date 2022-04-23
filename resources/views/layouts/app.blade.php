@@ -161,6 +161,11 @@
   </aside>
 
   <main id="main" class="main">
+    @if(session('status'))
+      <div>
+        {{session('status')}}
+      </div>
+    @endif
     @yield('content')
   </main><!-- End #main -->
 

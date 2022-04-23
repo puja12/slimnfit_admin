@@ -29,21 +29,27 @@
                </div>
                <div class="col-sm-4">
                   <div class="form-floating">
-                     <input type="text" name="first_name" class="form-control" id="first_name" placeholder="Your Name">
+                     <input type="text" name="first_name" class="form-control" id="first_name" placeholder="Your Name"  value="{{ old('first_name') }}">
                      <label for="firstname">First Name</label>
                   </div>
+                  @error('first_name')
+                     <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
                </div>
                <div class="col-sm-4">
                   <div class="form-floating">
-                     <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Your Name">
+                     <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Your Name"  value="{{ old('last_name') }}">
                      <label for="lastname">Last Name</label>
                   </div>
                </div>
                <div class="col-sm-4">
                   <div class="form-floating">
-                     <input type="email" name="email" class="form-control" id="email" placeholder="Your Email">
+                     <input type="email" name="email" class="form-control" id="email" placeholder="Your Email"  value="{{ old('email') }}">
                      <label for="email">Email</label>
                   </div>
+                  @error('email')
+                     <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
                </div>
                <div class="col-sm-4">
                   <div class="form-floating mb-3">
@@ -55,19 +61,28 @@
                      <label for="gender">Gender</label>
                   </div>
                </div>
+               @error('gender')
+                     <div class="alert alert-danger">{{ $message }}</div>
+               @enderror
                <div class="col-sm-4">
                   <div class="row">
                      <div class="col-sm-6">
                         <div class="form-floating">
-                           <input type="text" name="weight" class="form-control" id="weight" placeholder="Weight">
+                           <input type="text" name="weight" class="form-control" id="weight" placeholder="Weight" value="{{ old('weight') }}">
                            <label for="weight">Weight (kgs)</label>
                         </div>
+                        @error('weight')
+                           <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                      </div>
                      <div class="col-sm-6">
                         <div class="form-floating">
-                           <input type="text" name="height" class="form-control" id="height" placeholder="height">
+                           <input type="text" name="height" class="form-control" id="height" placeholder="height" value="{{ old('height') }}">
                            <label for="height">Height (cm)</label>
                         </div>
+                        @error('height')
+                           <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                      </div>
                   </div>
                </div>
@@ -75,18 +90,18 @@
                   <div class="row">
                      <div class="col-sm-6">
                         <div class="form-floating">
-                           <input type="text" name="bmi" class="form-control" id="bmi" placeholder="BMI" readonly>
+                           <input type="text" name="bmi" class="form-control" id="bmi" placeholder="BMI" value="{{ old('bmi')}}" readonly>
                            <label for="bmi">BMI</label>
                         </div>
                      </div>
                      <div class="col-sm-6" id="bmi_result">
-                        <input type="hidden" name="category" class="form-control" id="category">
+                        <input type="hidden" name="category" class="form-control" id="category" value="{{ old('category') }}">
                      </div>
                   </div>
                </div>
                <div class="col-sm-4">
                   <div class="form-floating">
-                     <textarea class="form-control" name="address" placeholder="Address" id="address" style="height: 60px;"></textarea>
+                     <textarea class="form-control" name="address" placeholder="Address" id="address" style="height: 60px;"  value="{{ old('address') }}"></textarea>
                      <label for="address">Address</label>
                   </div>
                </div>
@@ -94,7 +109,7 @@
                   <div class="row">
                      <div class="col-sm-6">
                         <div class="form-floating">
-                           <input type="text" name="city" class="form-control" id="city" placeholder="City">
+                           <input type="text" name="city" class="form-control" id="city" placeholder="City"  value="{{ old('city') }}">
                            <label for="city">City</label>
                         </div>
                      </div>
@@ -112,8 +127,14 @@
                </div>
                <div class="col-sm-4">
                   <div class="form-floating">
-                     <input type="text" name="pincode" class="form-control" id="pincode" placeholder="Zip">
+                     <input type="text" name="pincode" class="form-control" id="pincode" placeholder="Zip"  value="{{ old('pincode') }}">
                      <label for="pincode">Pincode</label>
+                  </div>
+               </div>
+               <div class="col-sm-4">
+                  <div class="form-floating">
+                     <input type="number" id="phone" name="phone" class="form-control"  value="{{ old('phone') }}">
+                     <label for="dob" >Mobile Number</label>
                   </div>
                </div>
                <div class="col-sm-4">
@@ -133,7 +154,7 @@
                   <h6 class="card-title">Medical History :</h6>
                   <div class="col-md-8 col-lg-9">
                      <div class="form-floating">
-                        <textarea name="medical_history" class="form-control" id="medical_history" style="height: 100px"></textarea>
+                        <textarea name="medical_history" class="form-control" id="medical_history" style="height: 100px"  value="{{ old('medical_history') }}"></textarea>
                         <label for="medical_history">Any Medical History,If YES please enter details</label>
                      </div>
                   </div>
@@ -154,7 +175,7 @@
                         </label>
                      </div>
                      <div class="col-sm-6 form-check">
-                        <input class="form-check-input" type="radio" name="food_cat" id="non_vegetarian" value="non_vegetarian">
+                        <input class="form-check-input" type="radio" name="food_cat" id="non_vegetarian" value="non vegetarian">
                         <label class="form-check-label" for="non_vegetarian">
                         Non Vegetarian
                         </label>
@@ -164,50 +185,50 @@
                <!-- end of radio buttons-->
                <div class="col-sm-4">
                   <div class="form-floating">
-                     <input type="text" name="no_of_meals" class="form-control" id="no_of_meals" placeholder="No. Of Meals">
+                     <input type="text" name="no_of_meals" class="form-control" id="no_of_meals" placeholder="No. Of Meals" value="{{ old('no_of_meals') }}">
                      <label for="no_of_meals">How many meals do you have in a day ?</label>
                   </div>
                </div>
                <div class="col-sm-4">
                   <div class="form-floating">
-                     <input type="text" name="major_meal" class="form-control" id="major_meal" placeholder="Major Meal">
+                     <input type="text" name="major_meal" class="form-control" id="major_meal" placeholder="Major Meal"  value="{{ old('major_meal') }}">
                      <label for="major_meal">Which is your major meal ?</label>
                   </div>
                </div>
                <div class="col-sm-4">
                   <div class="form-floating">
-                     <input type="text" name="glass_water" class="form-control" id="glass_water" placeholder="Your Name">
+                     <input type="text" name="glass_water" class="form-control" id="glass_water" placeholder="Your Name"  value="{{ old('glass_water') }}">
                      <label for="glass_water">Glasses/litres of water do you drink in a day ?</label>
                   </div>
                </div>
                <div class="col-sm-4">
                   <div class="form-floating">
-                     <input type="text" name="tea_coffee" class="form-control" id="tea_coffee" placeholder="Your Name">
+                     <input type="text" name="tea_coffee" class="form-control" id="tea_coffee" placeholder="Your Name" value="{{ old('tea_coffee') }}">
                      <label for="tea_coffee">Number of cups of tea/coffee in a day ? </label>
                   </div>
                </div>
                <div class="col-sm-4">
                   <div class="form-floating">
-                     <input type="text" name="sugar" class="form-control" id="sugar" placeholder="Your Name">
+                     <input type="text" name="sugar" class="form-control" id="sugar" placeholder="Your Name" value="{{ old('sugar') }}">
                      <label for="sugar">With or without sugar ?</label>
                   </div>
                </div>
                <div class="col-sm-4">
                   <div class="form-floating">
-                     <input type="text" name="cooking_oil" class="form-control" id="cooking_oil" placeholder="Your Name">
+                     <input type="text" name="cooking_oil" class="form-control" id="cooking_oil" placeholder="Your Name" value="{{ old('cooking_oil') }}">
                      <label for="cooking_oil">Which cooking oil do you use?</label>
                   </div>
                </div>
                <div class="col-sm-4">
                   <div class="form-floating">
-                     <input type="text" name="digestive_complaints" class="form-control" id="digestive_complaints" placeholder="Your Name">
+                     <input type="text" name="digestive_complaints" class="form-control" id="digestive_complaints" placeholder="Your Name" value="{{ old('digestive_complaints') }}">
                      <label for="digestive_complaints">Any digestive complaints? (acidity,gas,constipation)
                      </label>
                   </div>
                </div>
                <div class="col-sm-4">
                   <div class="form-floating">
-                     <input type="text" name="eat_out" class="form-control" id="eat_out" placeholder="Your Name">
+                     <input type="text" name="eat_out" class="form-control" id="eat_out" placeholder="Your Name" value="{{ old('eat_out') }}">
                      <label for="eat_out">How often do you eat out ?
                      </label>
                   </div>
