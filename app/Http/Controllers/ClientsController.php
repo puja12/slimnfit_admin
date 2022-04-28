@@ -103,9 +103,11 @@ class ClientsController extends Controller
     {
         //dd($id);
         //$client_detail = Client::findOrFail($id);
-        $client_details = Client::with('fitness_tracker')->where('client_id',$id);
-        dd($client_details);
-        return view('clients.clientdetails',['curr_client'=> $client_detail]);
+        $curr_client = Client::findOrFail($id);
+        $fitness_tracker = Client::find($id)->fitness_tracker;
+        //dd($fitness_tracker);
+        //return view('clients.clientdetails',['curr_client'=> $client_detail]);
+        return view('clients.clientdetails',compact('curr_client','fitness_tracker'));
     }
 
     /**

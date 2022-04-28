@@ -11,4 +11,9 @@ class FitnessTracker extends Model
     protected $table = 'fitness_tracker';
 
     protected $guarded = [];
+    public function client()
+    {
+      return $this->belongsTo(Clients::class);
+    }
 }
+

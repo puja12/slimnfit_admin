@@ -180,43 +180,36 @@
         </div>
         <!-- family members -->
         <div class="card">
+        <!--{{ print_r($fitness_tracker) }}-->
                 <div class="card-body">
                   <h5 class="card-title">Fitness Tracking <!-- <br /><span>Click on member to EDIT Details</span>--></h5>
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <th width="30%">Date</th>
-                        <th width="15%">Weight (Kgs)</th>
-                        <th width="15%">Height (cm)</th>
-                        <th width="35%">BMI</th>
-                      </tr>
-                      <tr>
-                        <td>20-01-2022</td>
-                        <td>67</td>
-                        <td>162</td>
-                        <td>25.53 Overweight</td>
-                      </tr>
-                      <tr>
-                      <td>XXXX</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                      </tr>
-                      <tr>
-                      <td>XXXX</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                      </tr>
-                      <tr>
-                      <td>XXXX</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                      </tr>
+                  @if(count($fitness_tracker)>0)
+                      @foreach($fitness_tracker as $curr_record)
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <th width="30%">Date</th>
+                          <th width="15%">Weight (Kgs)</th>
+                          <th width="15%">Height (cm)</th>
+                          <th width="15%">BMI</th>
+                          <th width="25%">Category</th>
+                        </tr>
+                        
+                        <tr>
+                          <td>{{$curr_record->date}}</td>
+                          <td>{{$curr_record->weight}}</td>
+                          <td>{{$curr_record->height}}</td>
+                          <td>{{$curr_record->bmi}}</td>
+                          <td>{{$curr_record->category}}</td>
+                        </tr>
+                        @endforeach
                       
-                    </tbody>
-                  </table>
+                      
+                      </tbody>
+                      @else
+                        No records!
+                      @endif
+                    </table>
                 </div>
               </div>
               </div>

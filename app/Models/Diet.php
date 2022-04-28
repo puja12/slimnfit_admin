@@ -9,4 +9,11 @@ class Diet extends Model
 {
     use HasFactory;
     protected $table = 'plans';
+
+    protected $guarded = [];
+    
+    public function client()
+    {
+      return $this->belongsTo(Clients::class);
+    }
 }

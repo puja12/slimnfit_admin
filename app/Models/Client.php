@@ -16,4 +16,9 @@ class Client extends Model
     {
       return $this->hasMany(FitnessTracker::class,'client_id');
     }
+
+    public function diet()
+    {
+      return $this->hasMany(Diets::class,'client_id');
+    }
 }
