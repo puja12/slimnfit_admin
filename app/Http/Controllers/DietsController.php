@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use App\Models\Diet;
 use App\Models\Meal;
 use App\Models\Mealtime;
@@ -56,9 +56,14 @@ class DietsController extends Controller
      * @param  \App\Models\Diet  $diet
      * @return \Illuminate\Http\Response
      */
-    public function show(Diet $diet)
+    public function show($plan_id)
     {
-        return view('dietplan.dietplandetail');
+        //DB::enableQueryLog();
+        //dd($plan_id);
+        $dietplan_details = Meal::where('plan_id', $plan_id)->get();
+       // dd(DB::getQueryLog());
+        //dd($dietplan_details);exit;
+        return view('dietplan.dietplandetail',['dietplan_details'=> $dietplan_details]);
     }
 
     /**

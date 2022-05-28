@@ -36,7 +36,7 @@
                       <th scope="row">{{$curr_client->id}}</th>
                       <td>{{date('d-m-Y', strtotime($curr_client->date));}}</td>
                       <td>{{$curr_client->plan_name}}</td>
-                      <td>{{$curr_client->email}}</td>
+                      <td>{{$curr_client->client_id}}</td>
                       
                       <td><i class="bi bi-files"></i>Copy Diet</td>
                       <td>

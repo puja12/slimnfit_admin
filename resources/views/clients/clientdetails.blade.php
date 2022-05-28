@@ -71,6 +71,7 @@
             <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Diet Plans</h5>
+                  @if(count($diet_plans)>0)
                   <table class="table">
                     <tbody>
                       <tr>
@@ -79,33 +80,21 @@
                         <th width="48%">Plan Name</th>
                         <th width="30%">Status</th>
                       </tr>
+
+                      @foreach($diet_plans as $index =>$curr_plan)
                       <tr>
-                        <td>1</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
+                        <td>{{$index+1}}</td>
+                        <td>{{$curr_plan->date}}</td>
+                        <td>{{$curr_plan->plan_name}}</td>
+                        <td>{{$curr_plan->status}}</td>
                       </tr>
-                      <tr>
-                      <td>2</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                      </tr>
-                      <tr>
-                      <td>3</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                      </tr>
-                      <tr>
-                      <td>4</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                        <td>XXXX</td>
-                      </tr>
+                      @endforeach
                       
                     </tbody>
                   </table>
+                  @else
+                    No records!
+                  @endif
                 </div>
               </div>
           </div>
@@ -132,7 +121,7 @@
                         <th>Water in a day (glasses or litres) :</th> <td> {{$curr_client->glass_water}}</td>
                         </tr>
                       <tr>
-                        <th>No. of cups of tea/coffee in a day (With or without sugar ):</th> <td>{{$curr_client->tea_coffee}} {{$curr_client->sugar}}</td>
+                        <th>No. of cups of tea/coffee in a day <br/>(With or without sugar ):</th> <td>{{$curr_client->tea_coffee}}-{{$curr_client->sugar}}</td>
                         </tr>
                       <tr>
                         <th>Cooking oil used :</th> <td>{{$curr_client->cooking_oil}}</td>
@@ -184,7 +173,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Fitness Tracking <!-- <br /><span>Click on member to EDIT Details</span>--></h5>
                   @if(count($fitness_tracker)>0)
-                      @foreach($fitness_tracker as $curr_record)
+                      
                     <table class="table">
                       <tbody>
                         <tr>
@@ -194,7 +183,7 @@
                           <th width="15%">BMI</th>
                           <th width="25%">Category</th>
                         </tr>
-                        
+                        @foreach($fitness_tracker as $curr_record)
                         <tr>
                           <td>{{$curr_record->date}}</td>
                           <td>{{$curr_record->weight}}</td>
