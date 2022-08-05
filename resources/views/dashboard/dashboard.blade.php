@@ -32,13 +32,13 @@
                       <i class="bi bi-people"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>1244</h6>
+                      <h6>{{$client_cnt}}</h6>
                       
                     </div>
                   </div>
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-eye-fill"></i>  </a>
-                    <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-plus-square"></i></a>
+                  <a href="{{route('client.list')}}" class="btn btn-primary btn-sm" title="View Client List"><i class="bi bi-eye-fill"></i>  </a>
+                    <a href="{{route('addclients')}}" class="btn btn-primary btn-sm" title="Add new Client"><i class="bi bi-plus-square"></i></a>
                   </div>
                 </div>
               </div>

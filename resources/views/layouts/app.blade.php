@@ -33,8 +33,8 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-between">
       <a href="{{route('dashboard')}}" class="logo d-flex align-items-center">
-        <img src="asset/img/logo.jpg" alt="">
-        <span class="d-none d-lg-block">Slimnfit</span>
+        <!--<img src="asset/img/logo.jpg" alt=""> uncomment this later-->
+        <span class="d-none d-lg-block">Admin</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn d-xl-none d-block"></i>
     </div><!-- End Logo -->
@@ -72,76 +72,27 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#clients-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-person"></i><span>Clients</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed" href="{{route('client.list')}}">
+          <i class="bi bi-person"></i><span>Clients</span>
         </a>
-        <ul id="clients-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{route('addclients')}}">
-              <i class="bi bi-circle"></i><span>Add</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{route('client.list')}}">
-              <i class="bi bi-circle"></i><span>List</span>
-            </a>
-          </li>
-          
-        </ul>
       </li><!-- End Components Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#dietplan-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Diet Plans</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed" href="{{route('diet.list')}}">
+          <i class="bi bi-journal-text"></i><span>Diet Plans</span>
         </a>
-        <ul id="dietplan-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{route('createdietplan')}}">
-              <i class="bi bi-circle"></i><span>Add</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{route('diet.list')}}">
-              <i class="bi bi-circle"></i><span>List/View</span>
-            </a>
-          </li>
-        </ul>
       </li><!-- End Forms Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#food-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Food</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed" href="{{route('diet.list')}}">
+          <i class="bi bi-journal-text"></i><span>Food</span>
         </a>
-        <ul id="food-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="forms-elements.html">
-              <i class="bi bi-circle"></i><span>Add </span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-layouts.html">
-              <i class="bi bi-circle"></i><span>List</span>
-            </a>
-          </li>
-        </ul>
       </li><!-- End Forms Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#recipes-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Recipes</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed" href="{{route('diet.list')}}">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Recipes</span>
         </a>
-        <ul id="recipes-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>Add</span>
-            </a>
-          </li>
-          <li>
-            <a href="tables-data.html">
-              <i class="bi bi-circle"></i><span>List</span>
-            </a>
-          </li>
-        </ul>
       </li><!-- End Tables Nav -->
 
       <li class="nav-item">
@@ -161,6 +112,11 @@
   </aside>
 
   <main id="main" class="main">
+    @if(session('status'))
+      <div>
+        {{session('status')}}
+      </div>
+    @endif
     @yield('content')
   </main><!-- End #main -->
 

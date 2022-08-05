@@ -3,13 +3,22 @@
 @section('content')
     <div class="pagetitle">
       <h1>Diet Plans : </h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Diet Plans</li>
-          <li class="breadcrumb-item active">List</li>
-        </ol>
-      </nav>
+      <div class="row">
+        <div  class="col-sm-6">
+          <nav>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item">Diet Plans</li>
+              <li class="breadcrumb-item active">List</li>
+            </ol>
+          </nav>
+        </div>
+        <div class="col-sm-6">
+          <a href="{{route('createdietplan')}}">
+            <button type="button" class="btn btn-primary">Add Diet Plan</button>
+          </a>
+        </div>
+      </div>
     </div><!-- End Page Title -->
     <section class="section">
       <div class="row">
@@ -36,7 +45,7 @@
                       <th scope="row">{{$curr_client->id}}</th>
                       <td>{{date('d-m-Y', strtotime($curr_client->date));}}</td>
                       <td>{{$curr_client->plan_name}}</td>
-                      <td>{{$curr_client->email}}</td>
+                      <td>{{$curr_client->client_id}}</td>
                       
                       <td><i class="bi bi-files"></i>Copy Diet</td>
                       <td>
@@ -53,15 +62,12 @@
               </table>
               <!-- End Table with stripped rows -->
               <script>
-                           $(document).ready(function() {
-                             
-							   $('#clienttb tbody').on('click','tr',function() {
-                                 window.document.location = $(this).data("href");
-							  });
-                              
-                           });
-                        
-                        </script>
+                  $(document).ready(function() {
+                    $('#clienttb tbody').on('click','tr',function() {
+                        window.document.location = $(this).data("href");
+                    });
+                  });
+              </script>
             </div>
           </div>
       </div>

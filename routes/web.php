@@ -22,7 +22,7 @@ Route::resource('client', 'ClientsController',
 Route::resource('diets', 'DietsController',
                 array('names' => array('index' => 'diet.list',
                                         'create'=>'createdietplan',
-                                        'store'=>'stordietplan',
+                                        'store'=>'storedietplan',
                                         'show'=>'viewdietplan'
                                     )
                 ));
@@ -46,9 +46,9 @@ Route::get('/clientadd', function () {
 
 //Route::get('/clientlist', [ClientsController::class, 'index'])->name('listclients');
 
-Route::get('/listdietplans', function () {
+/*Route::get('/listdietplans', function () {
     return view('dietplan.dietplanlist');
-})->name('listdietplans');
+})->name('listdietplans');*/
 
 /*Route::get('/viewdietplan', function () {
     return view('dietplan.dietplandetail');
