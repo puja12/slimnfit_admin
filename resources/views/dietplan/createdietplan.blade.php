@@ -18,7 +18,8 @@
               <h5 class="card-title">Add Diet Plan</h5>
 
               <!-- Floating Labels Form -->
-              <form class="row g-3" method="post" action="">
+              <form class="row g-3" method="post" action="{{ route('storedietplan')}}">
+                @csrf
               <div class="row" style="margin-bottom: 50px;">
                 <div class="col-sm-6">
                   <div class="form-floating">
@@ -29,214 +30,111 @@
               </div>
 
               <div class="row">
-              <!-- Bordered Table -->
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col" width="5%">#</th>
-                    <th scope="col" width="10%">Schedule</th>
-                    <th scope="col" width="30%">Food</th>
-                    <th scope="col" width="15%">Quantity</th>
-                    <th scope="col" width="15%">Units</th>
-                    <th scope="col" width="25%">Notes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Early Morning</td>
-                    <td>
-                    
-                    <select class="select2" multiple="multiple" name="food_item" data-placeholder="Food Item" style="width: 100%;">
-                      <option>Methi Seeds</option>
-                      <option>Almonds</option>
-                      <option>Walnuts</option>
-                      <option>tea</option>
-                      <option>Oats Chilla</option>
-                      <option>upma</option>
-                      <option>Brown Bread Sandwich</option>
-                      <option>Besan Chilla</option>
-                    </select>
-              
-                    </td>
-                    <td>
-                    <select class="select2" multiple="multiple" name="per_item_qty" data-placeholder="Qty per Item" style="width: 100%;">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                      <option>6</option>
-                      <option>7</option>
-                      <option>8</option>
-                    </select>
-                    </td>
-                    <td>
-                    <select class="select2" multiple="multiple" name="food_unit" data-placeholder="Units" style="width: 100%;">
-                      <option>cup</option>
-                      <option>cups</option>
-                      <option>cup sliced</option>
-                      <option>bowl</option>
-                      <option>handful</option>
-                      <option>nos.</option>
-                      <option>large</option>
-                      <option>small</option>
-                    </select>
-                    </td>
-                    <td>
-                    <div class="form-floating mb-3">
-                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 70px;"></textarea>
+                @foreach($mealtime as $key => $schedule)
+                <h5 >{{$schedule->slot}}</h5>
+                <input type="hidden" class="form-control" id="mealtime_{{$schedule->seq_no}}" name="mealtime_{{$schedule->seq_no}}" value="{{$schedule->slot}}">
+                <!-- Bordered Table -->
+                @php 
+                  $slot = preg_replace('/\s+/', '', strtolower($schedule->slot));
+                @endphp
+                <table class="table table-bordered" id="dynamic_diet_{{$slot}}">
+                  <thead>
+                    <tr>
+                      <th scope="col" width="30%">Food</th>
+                      <th scope="col" width="15%">Quantity</th>
+                      <th scope="col" width="15%">Units</th>
+                      <th scope="col" width="30%">Notes</th>
+                      <th scope="col" width="10%">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <select class="form-select" name="food_item_{{$slot}}[]" id="food_item" data-placeholder="Food Item" style="width: 100%;">
+                          @foreach($foods as $key => $food)
+                          <option value="{{$food->name}}"> {{$food->name}}</option>
+                          @endforeach
+                        </select>
+                      </td>
+                      <td>
+                      <select class="form-select" name="per_item_qty_{{$slot}}[]" data-placeholder="Qty per Item" style="width: 100%;">
+                        @for ($i = 1; $i <= 10; $i++)
+                            <option value="{{ $i }}">{{ $i }}</option>
+                        @endfor
+    
+                      </select>
+                      </td>
+                      <td>
+                      <select class="form-select" name="food_unit_{{$slot}}[]" data-placeholder="Units" style="width: 100%;">
+                        @foreach($units as $key => $unit)
+                          <option value="{{$unit->unit_name}}"> {{$unit->unit_name}}</option>
+                          @endforeach
+                      </select>
+                      </td>
+                      <td>
+                        <div class="form-floating mb-3">
+                          <textarea class="form-control" name="comments_{{$slot}}[]" placeholder="Leave a comment here" id="floatingTextarea" style="height: 30px;"></textarea>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-floating mb-3">
+                          <a href="#" class="btn btn-primary btn-sm plus" id="add_{{$slot}}" title="add fields"><i class="bi bi-plus-square"></i></a>
+                          <!--<a href="#" class="btn btn-danger btn-sm minus" title="remove"><i class="bi bi-file-minus"></i></a>-->
+                        </div>
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- End Bordered Table -->
+
+                <script>
+                  $(document).ready(function(){  
+                    var i=1;  
+                    var foodunits = @json($units);
+
+                    $('#add_{!!$slot!!}').click(function(){  
+                      console.log('Clicked');
+                      i++;  
+
+                      var options_fooditem=options_foodunits=options_qty="";
+                      $.each({!!$foods!!}, function(key, value) {
+                          options_fooditem+="<option value='"+value.name+"'>"+value.name+"</option>";
+                          //$('#food_item_{!!$slot!!}').append('<option value="' + value.name + '">' + value.name +'</option>');
+                      });
+
+                      //var options_foodunits="";
+                      $.each({!!$units!!}, function(key, value) {
+                          options_foodunits+="<option value='"+value.unit_name+"'>"+value.unit_name+"</option>";
+                      });
+
+                      //var options_qty="";
+                      for (var i = 1; i < 10; i++) {
+                          options_qty+="<option value='"+i+"'>"+i+"</option>";
+                      };
                       
-                    </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Breakfast</td>
-                    <td>
-                    
-                    <select class="select2" multiple="multiple" data-placeholder="Food Item" style="width: 100%;">
-                      <option>Methi Seeds</option>
-                      <option>Almonds</option>
-                      <option>Walnuts</option>
-                      <option>tea</option>
-                      <option>Oats Chilla</option>
-                      <option>upma</option>
-                      <option>Brown Bread Sandwich</option>
-                      <option>Besan Chilla</option>
-                    </select>
-              
-                    </td>
-                    <td>
-                    <select class="select2" multiple="multiple" data-placeholder="Qty per Item" style="width: 100%;">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                      <option>6</option>
-                      <option>7</option>
-                      <option>8</option>
-                    </select>
-                    </td>
-                    <td>
-                    <div class="form-floating mb-3">
-                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 70px;"></textarea>
-                      
-                    </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Lunch</td>
-                    <td>
-                    
-                    <select class="select2" multiple="multiple" data-placeholder="Food Item" style="width: 100%;">
-                      <option>Methi Seeds</option>
-                      <option>Almonds</option>
-                      <option>Walnuts</option>
-                      <option>tea</option>
-                      <option>Oats Chilla</option>
-                      <option>upma</option>
-                      <option>Brown Bread Sandwich</option>
-                      <option>Besan Chilla</option>
-                    </select>
-              
-                    </td>
-                    <td>
-                    <select class="select2" multiple="multiple" data-placeholder="Qty per Item" style="width: 100%;">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                      <option>6</option>
-                      <option>7</option>
-                      <option>8</option>
-                    </select>
-                    </td>
-                    <td>
-                    <div class="form-floating mb-3">
-                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 70px;"></textarea>
-                      
-                    </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Evening Snacks</td>
-                    <td>
-                    
-                    <select class="select2" multiple="multiple" data-placeholder="Food Item" style="width: 100%;">
-                      <option>Methi Seeds</option>
-                      <option>Almonds</option>
-                      <option>Walnuts</option>
-                      <option>tea</option>
-                      <option>Oats Chilla</option>
-                      <option>upma</option>
-                      <option>Brown Bread Sandwich</option>
-                      <option>Besan Chilla</option>
-                    </select>
-              
-                    </td>
-                    <td>
-                    <select class="select2" multiple="multiple" data-placeholder="Qty per Item" style="width: 100%;">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                      <option>6</option>
-                      <option>7</option>
-                      <option>8</option>
-                    </select>
-                    </td>
-                    <td>
-                    <div class="form-floating mb-3">
-                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 70px;"></textarea>
-                      
-                    </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Dinner</td>
-                    <td>
-                    
-                    <select class="select2" multiple="multiple" data-placeholder="Food Item" style="width: 100%;">
-                      <option>Methi Seeds</option>
-                      <option>Almonds</option>
-                      <option>Walnuts</option>
-                      <option>tea</option>
-                      <option>Oats Chilla</option>
-                      <option>upma</option>
-                      <option>Brown Bread Sandwich</option>
-                      <option>Besan Chilla</option>
-                    </select>
-              
-                    </td>
-                    <td>
-                    <select class="select2" multiple="multiple" data-placeholder="Qty per Item" style="width: 100%;">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                      <option>6</option>
-                      <option>7</option>
-                      <option>8</option>
-                    </select>
-                    </td>
-                    <td>
-                    <div class="form-floating mb-3">
-                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 70px;"></textarea>
-                      
-                    </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <!-- End Bordered Table -->
+                      var html = '';
+                          html += '<tr id="row_{!!$slot!!}'+i+'" class="dynamic-added">';
+                          html += '<td><select class="form-select" name="food_item_{!!$slot!!}[]" id="food_item_{!!$slot!!}" data-placeholder="Food Item" style="width: 100%;">';
+                          html += options_fooditem; 
+                          html += '</select></td>';
+                          html += '<td><select class="form-select" name="per_item_qty_{!!$slot!!}[]" id="per_item_qty_{!!$slot!!}" data-placeholder="Per item Qty" style="width: 100%;">';
+                          html += options_qty; 
+                          html += '</select></td>';
+                          html += '<td><select class="form-select" name="food_unit_{!!$slot!!}[]" id="food_unit_{!!$slot!!}" data-placeholder="Food Unit" style="width: 100%;">';
+                          html += options_foodunits; 
+                          html += '</select></td>';
+                          html += '<td><div class="form-floating mb-3"><textarea class="form-control" name="comments[]" placeholder="Leave a comment here" id="floatingTextarea" style="height: 30px;"></textarea></div></td>';
+                          html += '<td><button type="button" name="remove" id="{!!$slot!!}'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>';
+                          $('#dynamic_diet_{!!$slot!!}').append(html);
+                    });  
+                    $(document).on('click', '.btn_remove', function(){  
+                      var button_id = $(this).attr("id");   
+                      $('#row_'+button_id+'').remove();  
+                    });
+                  }); 
+                </script>
+                @endforeach
+                
               </div>
                 
 
@@ -245,57 +143,12 @@
                   <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
               </form><!-- End floating Labels Form -->
-
-            
           </div>
 
         </div>
       </div>
     </section>
-    <script>
-  $(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-
-    //Initialize Select2 Elements
-    /*$('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })*/
-
-    //to prevent multi select sorting
-    $("select").select2();
-    $("select").on("select2:select", function (evt) {
-      var element = evt.params.data.element;
-      var $element = $(element);
-      
-      $element.detach();
-      $(this).append($element);
-      $(this).trigger("change");
-    });
-    //end of  prevent multi select sorting
-
-    $("select").select2();
-    $("select").on("select2:select", function (evt) {
-      //console.log('HIIIIIIIII');return false;
-      // remove select2-disabled class from all li under the dropdown
-      $('.select2-drop .select2-results li').removeClass('select2-disabled');
-        // add select2-result-selectable class to all li which are missing the respective class
-      $('.select2-drop .select2-results li').each(function()
-      {
-        if(!$(this).hasClass('select2-result-selectable'))
-          $(this).addClass('select2-result-selectable');
-      });   
-    });
- 
-   // had to include the following code as a hack since the click event required double click on 'select2-input' to invoke the event
-  $('.select2-container-multi').on('mouseover',function()
-  {
-    $('.select2-input').click();
-  });
-
-  })
-  
-</script>
+    
     @endsection
-
+    
   

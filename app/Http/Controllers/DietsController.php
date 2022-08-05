@@ -6,7 +6,7 @@ use App\Models\Diet;
 use App\Models\Meal;
 use App\Models\Mealtime;
 use App\Models\Food;
-use App\Models\food_unit;
+use App\Models\Food_unit;
 use Illuminate\Http\Request;
 
 class DietsController extends Controller
@@ -35,7 +35,10 @@ class DietsController extends Controller
      */
     public function create()
     {
-        return view('dietplan.createdietplan');
+        $units = Food_unit::orderBy('unit_name', 'asc')->get();;
+        $mealtime = Mealtime::orderBy('seq_no', 'asc')->get();;
+        $foods = Food::orderBy('name', 'asc')->get();;
+        return view('dietplan.createdietplan',compact('units','mealtime','foods'));
     }
 
     /**

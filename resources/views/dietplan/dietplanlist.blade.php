@@ -3,13 +3,22 @@
 @section('content')
     <div class="pagetitle">
       <h1>Diet Plans : </h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Diet Plans</li>
-          <li class="breadcrumb-item active">List</li>
-        </ol>
-      </nav>
+      <div class="row">
+        <div  class="col-sm-6">
+          <nav>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item">Diet Plans</li>
+              <li class="breadcrumb-item active">List</li>
+            </ol>
+          </nav>
+        </div>
+        <div class="col-sm-6">
+          <a href="{{route('createdietplan')}}">
+            <button type="button" class="btn btn-primary">Add Diet Plan</button>
+          </a>
+        </div>
+      </div>
     </div><!-- End Page Title -->
     <section class="section">
       <div class="row">
@@ -53,15 +62,12 @@
               </table>
               <!-- End Table with stripped rows -->
               <script>
-                           $(document).ready(function() {
-                             
-							   $('#clienttb tbody').on('click','tr',function() {
-                                 window.document.location = $(this).data("href");
-							  });
-                              
-                           });
-                        
-                        </script>
+                  $(document).ready(function() {
+                    $('#clienttb tbody').on('click','tr',function() {
+                        window.document.location = $(this).data("href");
+                    });
+                  });
+              </script>
             </div>
           </div>
       </div>

@@ -4,13 +4,22 @@
 <!--{{ print_r($clients) }}-->
     <div class="pagetitle">
       <h1>Clients : </h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Clients</li>
-          <li class="breadcrumb-item active">List</li>
-        </ol>
-      </nav>
+      <div class="row">
+        <div  class="col-sm-6">
+          <nav>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item">Clients</li>
+              <li class="breadcrumb-item active">List</li>
+            </ol>
+          </nav>
+        </div>
+        <div class="col-sm-6">
+          <a href="{{route('addclients')}}">
+            <button type="button" class="btn btn-primary">Add Client</button>
+          </a>
+        </div>
+      </div>
     </div><!-- End Page Title -->
     <section class="section">
       <div class="row">
