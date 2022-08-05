@@ -8,7 +8,7 @@
         <div  class="col-sm-6">
           <nav>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
               <li class="breadcrumb-item">Clients</li>
               <li class="breadcrumb-item active">List</li>
             </ol>
@@ -60,15 +60,13 @@
               </table>
               <!-- End Table with stripped rows -->
               <script>
-                           $(document).ready(function() {
-                             
-							   $('#clienttb tbody').on('click','tr',function() {
-                                 window.document.location = $(this).data("href");
-							  });
-                              
-                           });
-                        
-                        </script>
+                  $(document).ready(function() {
+                    $('#clienttb tbody').on('click','tr',function() {
+                        window.document.location = $(this).data("href");
+                      });
+                  });
+              
+              </script>
             </div>
           </div>
       </div>

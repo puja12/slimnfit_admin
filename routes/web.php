@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FoodController;
 
 
 Route::get('/', [LoginController::class, 'showLoginForm']);
@@ -27,7 +28,8 @@ Route::resource('diets', 'DietsController',
                                     )
                 ));
 
-
+Route::get('/food',[FoodController::class,'index'])->name('food');
+Route::get('/food/create',[FoodController::class,'create'])->name('addfood');
 Route::get('logout', function ()
 {
     auth()->logout();

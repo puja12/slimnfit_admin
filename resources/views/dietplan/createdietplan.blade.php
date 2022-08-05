@@ -23,7 +23,7 @@
               <div class="row" style="margin-bottom: 50px;">
                 <div class="col-sm-6">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Diet Plan Name">
+                    <input type="text" class="form-control" name="plan_name" id="floatingName" placeholder="Diet Plan Name">
                     <label for="floatingName">Diet Plan Name</label>
                   </div>
                 </div>
@@ -35,9 +35,9 @@
                 <input type="hidden" class="form-control" id="mealtime_{{$schedule->seq_no}}" name="mealtime_{{$schedule->seq_no}}" value="{{$schedule->slot}}">
                 <!-- Bordered Table -->
                 @php 
-                  $slot = preg_replace('/\s+/', '', strtolower($schedule->slot));
+                  $slot = preg_replace('/\s+/', '', strtolower($schedule->seq_no));
                 @endphp
-                <table class="table table-bordered" id="dynamic_diet_{{$slot}}">
+                <table class="table table-bordered" id="dynamic_diet_{{$schedule->seq_no}}">
                   <thead>
                     <tr>
                       <th scope="col" width="30%">Food</th>
@@ -50,14 +50,14 @@
                   <tbody>
                     <tr>
                       <td>
-                        <select class="form-select" name="food_item_{{$slot}}[]" id="food_item" data-placeholder="Food Item" style="width: 100%;">
+                        <select class="form-select" name="food_item_{{$schedule->seq_no}}[]"  data-placeholder="Food Item" style="width: 100%;">
                           @foreach($foods as $key => $food)
                           <option value="{{$food->name}}"> {{$food->name}}</option>
                           @endforeach
                         </select>
                       </td>
                       <td>
-                      <select class="form-select" name="per_item_qty_{{$slot}}[]" data-placeholder="Qty per Item" style="width: 100%;">
+                      <select class="form-select" name="per_item_qty_{{$schedule->seq_no}}[]" data-placeholder="Qty per Item" style="width: 100%;">
                         @for ($i = 1; $i <= 10; $i++)
                             <option value="{{ $i }}">{{ $i }}</option>
                         @endfor
@@ -65,7 +65,7 @@
                       </select>
                       </td>
                       <td>
-                      <select class="form-select" name="food_unit_{{$slot}}[]" data-placeholder="Units" style="width: 100%;">
+                      <select class="form-select" name="food_unit_{{$schedule->seq_no}}[]" data-placeholder="Units" style="width: 100%;">
                         @foreach($units as $key => $unit)
                           <option value="{{$unit->unit_name}}"> {{$unit->unit_name}}</option>
                           @endforeach
@@ -73,12 +73,12 @@
                       </td>
                       <td>
                         <div class="form-floating mb-3">
-                          <textarea class="form-control" name="comments_{{$slot}}[]" placeholder="Leave a comment here" id="floatingTextarea" style="height: 30px;"></textarea>
+                          <textarea class="form-control" name="comments_{{$schedule->seq_no}}[]" placeholder="Leave a comment here" id="floatingTextarea" style="height: 30px;"></textarea>
                         </div>
                       </td>
                       <td>
                         <div class="form-floating mb-3">
-                          <a href="#" class="btn btn-primary btn-sm plus" id="add_{{$slot}}" title="add fields"><i class="bi bi-plus-square"></i></a>
+                          <a href="#" class="btn btn-primary btn-sm plus" id="add_{{$schedule->seq_no}}}" title="add fields"><i class="bi bi-plus-square"></i></a>
                           <!--<a href="#" class="btn btn-danger btn-sm minus" title="remove"><i class="bi bi-file-minus"></i></a>-->
                         </div>
                         </td>
@@ -93,7 +93,7 @@
                     var foodunits = @json($units);
 
                     $('#add_{!!$slot!!}').click(function(){  
-                      console.log('Clicked');
+                      console.log('Clicked');return false;
                       i++;  
 
                       var options_fooditem=options_foodunits=options_qty="";

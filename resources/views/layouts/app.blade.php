@@ -84,7 +84,7 @@
       </li><!-- End Forms Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('diet.list')}}">
+        <a class="nav-link collapsed" href="{{route('food')}}">
           <i class="bi bi-journal-text"></i><span>Food</span>
         </a>
       </li><!-- End Forms Nav -->

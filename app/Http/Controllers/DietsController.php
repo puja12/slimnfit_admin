@@ -35,9 +35,9 @@ class DietsController extends Controller
      */
     public function create()
     {
-        $units = Food_unit::orderBy('unit_name', 'asc')->get();;
-        $mealtime = Mealtime::orderBy('seq_no', 'asc')->get();;
-        $foods = Food::orderBy('name', 'asc')->get();;
+        $units = Food_unit::orderBy('unit_name', 'asc')->get();
+        $mealtime = Mealtime::orderBy('seq_no', 'asc')->get();
+        $foods = Food::orderBy('name', 'asc')->get();
         return view('dietplan.createdietplan',compact('units','mealtime','foods'));
     }
 
